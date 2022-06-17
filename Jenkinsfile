@@ -3,8 +3,8 @@ pipeline {
        ID_DOCKER = "b3col3"
        IMAGE_NAME = "final-exam-1"
        IMAGE_TAG = "latest"
-       STAGING = "${ID_DOCKER}-staging"
-       PRODUCTION = "${ID_DOCKER}-production"
+       STAGING = "${ID_DOCKER}-${IMAGE_NAME}-staging"
+       PRODUCTION = "${ID_DOCKER}-${IMAGE_NAME}-production"
        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
      }
      agent none
