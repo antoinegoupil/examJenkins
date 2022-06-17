@@ -22,7 +22,7 @@ pipeline {
             steps {
                script {
                  sh '''
-                  docker run -d -p 8085:5000 -e PORT=5000 --name ${IMAGE_NAME} ${ID_DOCKER}/${IMAGE_NAME}:${IMAGE_TAG} 
+                  docker run -dit --name ${IMAGE_NAME} -p 80:80 ${ID_DOCKER}/${IMAGE_NAME}:${IMAGE_TAG} 
                  '''
                }
             }
@@ -32,7 +32,7 @@ pipeline {
            steps {
               script {
                 sh '''
-                 curl http://172.17.0.1:8085 | grep -i "Hello world!"
+                 curl http://172.17.0.1 | grep -i "Hello world!"
                 '''
               }
            }
